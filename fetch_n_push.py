@@ -2,15 +2,15 @@ import time
 from os import system
 import RPi.GPIO as GPIO
 #import eeml
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BOARD)
 DEBLOGGER = 1
 UG = 1
 
 
 #i=1;
-GPIO.setup(2, GPIO.IN)
+GPIO.setup(3, GPIO.IN)
 while True:
-		dat = GPIO.input(2)
+		dat = GPIO.input(3)
 		#system("cd ~/Desktop/aws-iot-device-sdk-python/samples/basicPubSub")
 		cmd= "cd ~/Desktop/aws-iot-device-sdk-python/samples/basicPubSub && sudo python basicPubSub.py -e a22m0pb0aki0bc-ats.iot.us-east-1.amazonaws.com -r root-CA.crt -c ECG_iot_RPi.cert.pem -k ECG_iot_RPi.private.key -t topic_1 -M "+ str(dat)
 		system(cmd)	
